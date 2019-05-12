@@ -3,7 +3,7 @@ import React from 'react';
 const QuestionResult = () => {
     return(
         <div className="columns is-centered question-result">
-            <div class="column is-7 has-background-white-ter">
+            <div className="column is-7 has-background-white-ter">
                 <div className="card question-result-panel">
                     <header className="header has-background-primary">
                         <p className="card-header-title has-text-light"> Aimen Batool Asked </p>
@@ -12,7 +12,7 @@ const QuestionResult = () => {
                         <div className="content columns">
                         <div className="column is-3">
                                 <figure class="image is-96x96">
-                                    <img class="is-rounded" src="/images/girl.png" alt="dp"/>
+                                    <img className="is-rounded" src="/images/girl.png" alt="dp"/>
                                 </figure>
                         </div>
                         <div className="column">
@@ -28,16 +28,16 @@ const QuestionResult = () => {
                                             <progress class="progress is-small" value="15" max="100">15%</progress>
                                         </div>
                                         <div className="has-text-right">
-                                            <span class="tag is-info"> 1 out of 2 votes</span>
+                                            <span className="tag is-info"> 1 out of 2 votes</span>
                                         </div>
                                     </li>
                                     <li className="list-item"> 
                                         Would you rather Eat bananas?
                                         <div>
-                                            <progress class="progress is-small" value="20" max="100">15%</progress>
+                                            <progress className="progress is-small" value="20" max="100">15%</progress>
                                         </div>
                                         <div className="has-text-right">
-                                            <span class="tag is-info"> 1 out of 2 votes</span>
+                                            <span className="tag is-info"> 1 out of 2 votes</span>
                                         </div>
                                     </li>
                                 </div>

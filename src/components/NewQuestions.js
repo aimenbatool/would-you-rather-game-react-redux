@@ -7,7 +7,7 @@ const NewQuestion = () => {
             <div className="column is-6">
                 <div className="card">
                     <header className="card-header has-background-primary">
-                        <p class="card-header-title has-text-light"> 
+                        <p className="card-header-title has-text-light"> 
                             Create New Question 
                         </p>
                     </header>

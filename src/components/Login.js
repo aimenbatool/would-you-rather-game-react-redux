@@ -3,7 +3,7 @@ import React from 'react';
 const Login = () => {
     return (
         <div className="columns is-centered question">
-            <div class="column is-4 has-background-white-ter">
+            <div className="column is-4 has-background-white-ter">
                 <div className="card question-panel">
                     <header className="header has-background-primary">
                         <p className="card-header-title has-text-light"> Login </p>
@@ -24,7 +24,7 @@ const Login = () => {
                                     </select>
                                 </div>
                                 <div className="login-btn">
-                                    <button class="button is-info">Login</button>
+                                    <button className="button is-info">Login</button>
                                 </div>
                             </div>
                         </div>

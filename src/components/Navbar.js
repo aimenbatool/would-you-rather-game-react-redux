@@ -11,7 +11,7 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="navbar-end">
-                    <Link className="navbar-item" to="/" exact>
+                    <Link className="navbar-item" to="/">
                         Home
                     </Link>
                     <Link className="navbar-item" to="/add">
@@ -23,11 +23,11 @@ const Navbar = () => {
                     {/* add is-actibve to show dropdwon */}
                     <div className="navbar-item dropdown"> 
                         <div className="dropdown-trigger">
-                            <button class="button is-primary is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <button className="button is-primary is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
                                 <span className="username"> aimenbatool </span>
                                 <span className="icon is-small">
                                     <figure className="image is-24x24">
-                                        <img className="is-rounded" src="/images/girl.png" alt="placeholder"/>
+                                        <img className="is-rounded" src="/images/johndoe.png" alt="placeholder"/>
                                     </figure>
                                 </span>
                             </button>                            

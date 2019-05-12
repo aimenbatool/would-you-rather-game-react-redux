@@ -3,7 +3,7 @@ import React from 'react';
 const Question = () => {
     return(
         <div className="columns is-centered question">
-            <div class="column is-7 has-background-white-ter">
+            <div className="column is-7 has-background-white-ter">
                 <div className="card question-panel">
                     <header className="header has-background-primary">
                         <p className="card-header-title has-text-light"> Aimen Batool Asked </p>
@@ -11,8 +11,8 @@ const Question = () => {
                     <div className="card-content">
                         <div className="content columns">
                             <div className="column is-3">
-                                    <figure class="image is-96x96">
-                                        <img class="is-rounded" src="/images/girl.png" alt="dp"/>
+                                    <figure className="image is-96x96">
+                                        <img className="is-rounded" src="/images/girl.png" alt="dp"/>
                                     </figure>
                             </div>
                             <div className="column">
