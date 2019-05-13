@@ -10,10 +10,12 @@ import NewQuestion from './NewQuestions';
 import Question from './Question';
 import QuestionResult from './QuestionResult';
 import { handleInitialData } from './../actions/shared';
+import { setAuthedUser } from './../actions/authedUser';
 
 class App extends Component {
 
   componentDidMount() {
+    this.props.dispatch(setAuthedUser('sarahedo'));
     this.props.dispatch(handleInitialData());
   }
 

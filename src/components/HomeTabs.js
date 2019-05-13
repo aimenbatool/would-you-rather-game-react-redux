@@ -9,7 +9,6 @@ class HomeTabs extends Component {
     render() {
 
         const { unanswerdQuestions, answerdQuestions, users } = this.props;
-        console.log(users, ' users ');
 
         return(
             <Tabs>
@@ -100,23 +99,24 @@ class HomeTabs extends Component {
     }
 }
 
-    const unanswerdQuestions = (questions) => {
+    const unanswerdQuestions = (questions, id) => {
         return Object.entries(questions).filter((question) => (
-            (question[1].optionOne.votes.length === 0 && question[1].optionTwo.votes.length === 0)
+            (!question[1].optionOne.votes.includes(id) && !question[1].optionTwo.votes.includes(id))
         ));
     }
 
-    const answeredQuestions = (questions) => {
+    const answeredQuestions = (questions, id) => {
         return Object.entries(questions).filter((question) => (
-            (question[1].optionOne.votes.length > 0 || question[1].optionTwo.votes.length > 0)
+            (question[1].optionOne.votes.includes(id) || question[1].optionTwo.votes.includes(id))
         ));
     }
 
-    const mapStateToProps = (state) => {
+    const mapStateToProps = ({questions, users, authedUser}) => {
         return {
-            answerdQuestions: answeredQuestions(state.questions),
-            unanswerdQuestions: unanswerdQuestions(state.questions),
-            users: state.users,
+            answerdQuestions: answeredQuestions(questions, authedUser),
+            unanswerdQuestions: unanswerdQuestions(questions, authedUser),
+            users: users,
+            authedUser: authedUser,
         }
     }
 

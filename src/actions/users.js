@@ -6,5 +6,3 @@ export const getUsers = (users) => {
         users,
     }
 }
-
-// export const handleGetUsers = 
