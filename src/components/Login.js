@@ -7,6 +7,8 @@ class Login extends Component {
 
     handleChange = (event) => {
         this.props.dispatch(setAuthedUser(event.target.value));
+        // localStorage.setItem('userId', event.target.value);
+        // remove side effect.
     }
 
     render() {
@@ -30,8 +32,8 @@ class Login extends Component {
                             </div>
                                 <div className="control has-text-centered">
                                     <div className="select">
-                                        <select onChange={this.handleChange}>
-                                            <option disabled selected>Select User</option>
+                                        <select onChange={this.handleChange} defaultValue={'DEFAULT'}>
+                                            <option disabled value='DEFAULT'>Select User</option>
                                             {Object.entries(users).map((user, index) => (
                                                 <option key={index} value={user[0]}> {user[1].name} </option>
                                             ))}

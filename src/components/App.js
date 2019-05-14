@@ -15,8 +15,9 @@ import { setAuthedUser } from './../actions/authedUser';
 class App extends Component {
 
   componentDidMount() {
-    this.props.dispatch(setAuthedUser());
     this.props.dispatch(handleInitialData());
+    // const userId = localStorage.getItem('userId');
+    this.props.dispatch(setAuthedUser());
   }
 
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
         <section className="hero">
           <div className="hero-body">
             <div className="container has-text-centered">
-              { authedUser && <Navbar/> }
+              { authedUser && <Navbar dispatch={this.props.dispatch}/> }
               <Route path="/" exact component={HomeComponent} />
               <Route path="/add" component={NewQuestion} />
               <Route path="/leadboard" component={Leadboard} />
