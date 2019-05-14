@@ -1,46 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import AnswerQuestion from './AnswerQuestion';
+import QuestionResult from './QuestionResult';
 
-const Question = () => {
-    return(
-        <div className="columns is-centered question">
-            <div className="column is-7 has-background-white-ter">
-                <div className="card question-panel">
-                    <header className="header has-background-primary">
-                        <p className="card-header-title has-text-light"> Aimen Batool Asked </p>
-                    </header>
-                    <div className="card-content">
-                        <div className="content columns">
-                            <div className="column is-3">
-                                    <figure className="image is-96x96">
-                                        <img className="is-rounded" src="/images/girl.png" alt="dp"/>
-                                    </figure>
-                            </div>
-                            <div className="column">
-                                    <h6 className="has-text-left">Would you rather?</h6>
-                                    <div className="list">
-                                        <li className="list-item"> 
-                                            <label className="radio">
-                                                <input type="radio" name="answer" />
-                                            </label>
-                                            Eat mangoes
-                                        </li>
-                                        <li className="list-item"> 
-                                            <label className="radio">
-                                                <input type="radio" name="answer" />
-                                            </label>
-                                            Eat bananas
-                                        </li>
-                                    </div>
-                                    <div className="is-pulled-left">
-                                        <button type="submit" className="button is-dark" href="/"> Submit </button>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+class Question extends Component {
+    render() {
+        const { match, questions, authedUser } = this.props;
+        const { id } = match.params;
+        if( questions && questions[id]) {
+            const question = questions[id];
+            const answeredQuestion = question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser);
+            
+            return(
+                answeredQuestion ? 
+                    <QuestionResult question={question}/>
+                    :
+                    <AnswerQuestion />
+            );
+        } else {
+            return (
+                <div> Invalid Id </div>
+            )
+        }
+    }
 }
 
-export default Question;
+const mapStateToProps = ({ questions, authedUser }) => {
+    return {
+        questions,
+        authedUser,
+    };
+}
+
+export default connect(mapStateToProps)(Question);
