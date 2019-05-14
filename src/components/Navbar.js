@@ -23,7 +23,6 @@ class Navbar extends Component {
 
     render() {
         const { users, authedUser } = this.props;
-        console.log(users)
         const isActive = this.state.active ? 'is-active' : '';
         return(
             <div>
