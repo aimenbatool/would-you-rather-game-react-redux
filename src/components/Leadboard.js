@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const Leadboard = (props) => {
 
     const { users } = props;
-    
+
     const compare = ( a, b ) => {
         const aScore = Object.keys(a[1].answers).length + a[1].questions.length;
         const bScore = Object.keys(b[1].answers).length + b[1].questions.length;
@@ -31,7 +31,7 @@ const Leadboard = (props) => {
                                     <div className="content columns">
                                     <div className="column is-3">
                                             <figure className="image is-96x96">
-                                                <img className="is-rounded" src="/images/johndoe.png" alt="dp"/>
+                                                <img className="is-rounded" src={ user[1].avatarURL } alt="dp"/>
                                             </figure>
                                     </div>
                                     <div className="column is-5">
