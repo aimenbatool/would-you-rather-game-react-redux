@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AnswerQuestion from './AnswerQuestion';
 import QuestionResult from './QuestionResult';
+import Page404 from './Page404';
 
 class Question extends Component {
     render() {
@@ -19,7 +20,7 @@ class Question extends Component {
             );
         } else {
             return (
-                <div> Invalid Id </div>
+                <Page404 msg="Poll doesn't exist."/>
             )
         }
     }

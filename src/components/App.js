@@ -1,13 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 import Login from './Login';
 import Navbar from './Navbar';
 import Home from './Home';
 import Leadboard from './Leadboard';
 import NewQuestion from './NewQuestions';
 import Question from './Question';
+import Page404 from './Page404';
 import { handleInitialData } from './../actions/shared';
 import { setAuthedUser } from './../actions/authedUser';
 import { PrivateRoute } from './PrivateRoute';
@@ -32,10 +37,13 @@ class App extends Component {
             <div className="hero-body">
               <div className="container has-text-centered">
                 { authedUser && <Navbar dispatch={this.props.dispatch}/> }
-                <Route path="/" exact component={HomeComponent} />
-                <PrivateRoute path="/question/:id" authedUser={authedUser} component={Question} />
-                <PrivateRoute path="/leadboard" authedUser={authedUser} component={Leadboard}/>
-                <PrivateRoute path="/add" authedUser={authedUser} component={NewQuestion} />
+                <Switch>
+                  <Route path="/" exact component={HomeComponent} />
+                  <PrivateRoute path="/question/:id" authedUser={authedUser} component={Question} />
+                  <PrivateRoute path="/leadboard" authedUser={authedUser} component={Leadboard}/>
+                  <PrivateRoute path="/add" authedUser={authedUser} component={NewQuestion} />
+                  <Route component={Page404}/>
+                </Switch>
               </div>
             </div>
           </section>
