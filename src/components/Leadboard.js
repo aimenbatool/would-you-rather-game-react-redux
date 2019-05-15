@@ -4,12 +4,24 @@ import { connect } from 'react-redux';
 const Leadboard = (props) => {
 
     const { users } = props;
+    
+    const compare = ( a, b ) => {
+        const aScore = Object.keys(a[1].answers).length + a[1].questions.length;
+        const bScore = Object.keys(b[1].answers).length + b[1].questions.length;
+        if ( aScore > bScore){
+          return -1;
+        }
+        if ( aScore < bScore){
+          return 1;
+        }
+        return 0;
+      }
 
     return(
         <div className="columns is-centered leadboard">
             <div className="column is-8 has-background-white-ter">
             {
-                Object.entries(users).map( (user, index) => {
+                Object.entries(users).sort(compare).map( (user, index) => {
                     return(
                             <div key={index} className="card leadboard-panel">
                                 <header className="header has-background-primary">
