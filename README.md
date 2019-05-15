@@ -1,7 +1,7 @@
 # Would You Rather Game
 
 A ReactJS and Redux based game app where users can ask and answer questions to stay in the game. Winner will be the one whose number of questions asked and answered are maximum. 
-Play this game [here](https://distracted-clarke-e1eb7c.netlify.com/).
+Play this game [here](https://would-you-rather.aimen.dev//).
 
 # Developing
 ## Prerequisites
