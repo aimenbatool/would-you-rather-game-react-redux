@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Would You Rather Game
 
-## Available Scripts
+A ReactJS and Redux based game app where users can ask and answer questions to stay in the game. Winner will be the one whose number of questions asked and answered are maximum. 
+Play this game [here](https://distracted-clarke-e1eb7c.netlify.com/).
 
-In the project directory, you can run:
+# Developing
+## Prerequisites
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### [Node](https://nodejs.org/en/)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Install Latest LTS Version: 10.15.2 (includes npm 6.4.1)
+Binaries, installers, and source tarballs are available at
+<https://nodejs.org/en/download/>.
 
-### `npm test`
+To update your npm and install globally, type this into your terminal
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm install npm@latest -g
 
-### `npm run build`
+```
+To test Node. To see if Node is installed, open the Windows Command Prompt, Powershell or a similar command line tool
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm -v
+```
+### [Yarn](https://www.npmjs.com/package/yarn)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+[yarn](https://yarnpkg.com/) is a fast, reliable, and secure dependency management tool. You can now use yarn to install reason and manage its dependencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To install Yarn, it is best to [consult the official documentation](https://yarnpkg.com/en/docs/install) for your particular platform.
 
-### `npm run eject`
+To install yarn globally using node, type this into your terminal
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm install -g yarn
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+## Testing 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn -v
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+## Building
 
-## Learn More
+First, fork this repository to another GitHub account. Then you can clone and install:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+git clone https://github.com/<YOUR_ACCOUNT>/would-you-rather-game-react-redux.git
+cd would-you-rather-game-react-redux
+yarn install // This will install all dependencies
+yarn start
+```
+This will start a local development server on [port 300](http://localhost:300).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
