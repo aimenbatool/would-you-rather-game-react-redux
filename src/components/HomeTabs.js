@@ -6,6 +6,17 @@ import "react-tabs/style/react-tabs.css";
 import { connect } from 'react-redux';
 
 class HomeTabs extends Component {    
+
+    compare( a, b ) {
+       if ( a[1].timestamp > b[1].timestamp ){
+         return -1;
+       }
+       if ( a[1].timestamp < b[1].timestamp ){
+         return 1;
+       }
+       return 0;
+     }
+      
     render() {
         const { unanswerdQuestions, answerdQuestions, users } = this.props;
 
@@ -20,7 +31,7 @@ class HomeTabs extends Component {
                 <div className="columns is-centered leadboard">
                     <div className="column is-7 has-background-white-ter">
                         {
-                            unanswerdQuestions.map((question, index) => (
+                            unanswerdQuestions.sort(this.compare).map((question, index) => (
                                 <div key={index} className="card leadboard-panel">
                                     <header className="header has-background-primary">
                                         <p className="card-header-title has-text-light"> Asked By: {users[question[1].author].name} </p>
@@ -59,7 +70,7 @@ class HomeTabs extends Component {
                 <div className="columns is-centered leadboard">
                         <div className="column is-7 has-background-white-ter">
                             {
-                                answerdQuestions.map((question, index) => (
+                                answerdQuestions.sort(this.compare).map((question, index) => (
                                     <div key={index} className="card leadboard-panel">
                                         <header className="header has-background-primary">
                                             <p className="card-header-title has-text-light"> Asked By: {users[question[1].author].name} </p>
