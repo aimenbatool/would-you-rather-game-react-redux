@@ -39,9 +39,6 @@ class Login extends Component {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className="login-btn">
-                                        <button className="button is-info">Login</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
