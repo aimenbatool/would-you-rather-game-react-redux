@@ -52,7 +52,7 @@ cd would-you-rather-game-react-redux
 yarn install // This will install all dependencies
 yarn start
 ```
-This will start a local development server on [port 300](http://localhost:300).
+This will start a local development server on [port 3000](http://localhost:3000).
 
 
 
