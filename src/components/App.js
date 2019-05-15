@@ -8,9 +8,9 @@ import Home from './Home';
 import Leadboard from './Leadboard';
 import NewQuestion from './NewQuestions';
 import Question from './Question';
-import QuestionResult from './QuestionResult';
 import { handleInitialData } from './../actions/shared';
 import { setAuthedUser } from './../actions/authedUser';
+import { PrivateRoute } from './PrivateRoute';
 
 class App extends Component {
 
@@ -30,10 +30,9 @@ class App extends Component {
             <div className="container has-text-centered">
               { authedUser && <Navbar dispatch={this.props.dispatch}/> }
               <Route path="/" exact component={HomeComponent} />
-              <Route path="/add" component={NewQuestion} />
-              <Route path="/leadboard" component={Leadboard} />
-              <Route path="/question/:id" component={Question} />
-              <Route path="/result/:id" component={QuestionResult} />
+              <PrivateRoute path="/question/:id" authedUser={authedUser} component={Question} />
+              <PrivateRoute path="/leadboard" authedUser={authedUser} component={Leadboard}/>
+              <PrivateRoute path="/add" authedUser={authedUser} component={NewQuestion} />
             </div>
           </div>
       </section>
