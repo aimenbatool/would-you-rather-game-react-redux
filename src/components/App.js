@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
@@ -11,6 +11,7 @@ import Question from './Question';
 import { handleInitialData } from './../actions/shared';
 import { setAuthedUser } from './../actions/authedUser';
 import { PrivateRoute } from './PrivateRoute';
+import LoadingBar from 'react-redux-loading-bar';
 
 class App extends Component {
 
@@ -25,17 +26,20 @@ class App extends Component {
     const HomeComponent =  authedUser === null ? Login : Home;
     return (
       <Router>
-        <section className="hero">
-          <div className="hero-body">
-            <div className="container has-text-centered">
-              { authedUser && <Navbar dispatch={this.props.dispatch}/> }
-              <Route path="/" exact component={HomeComponent} />
-              <PrivateRoute path="/question/:id" authedUser={authedUser} component={Question} />
-              <PrivateRoute path="/leadboard" authedUser={authedUser} component={Leadboard}/>
-              <PrivateRoute path="/add" authedUser={authedUser} component={NewQuestion} />
+        <Fragment>
+          <LoadingBar />
+          <section className="hero">
+            <div className="hero-body">
+              <div className="container has-text-centered">
+                { authedUser && <Navbar dispatch={this.props.dispatch}/> }
+                <Route path="/" exact component={HomeComponent} />
+                <PrivateRoute path="/question/:id" authedUser={authedUser} component={Question} />
+                <PrivateRoute path="/leadboard" authedUser={authedUser} component={Leadboard}/>
+                <PrivateRoute path="/add" authedUser={authedUser} component={NewQuestion} />
+              </div>
             </div>
-          </div>
-      </section>
+          </section>
+        </Fragment>
       </Router>
     );
   }

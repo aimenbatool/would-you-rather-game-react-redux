@@ -1,5 +1,6 @@
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA';
 import { addAnswerAgainstUser } from './users';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const ADD_QUESTION = 'SAVE_QUESTION';
 export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER';
@@ -14,6 +15,7 @@ export const getQuestions = (questions) => {
 export const handleSaveQuestion = (optionOneText, optionTwoText, history) => {
     return (dispatch, getState) => {
         const { authedUser } = getState();
+        dispatch(showLoading());
         return _saveQuestion({
             author: authedUser,
             optionOneText,
@@ -21,6 +23,7 @@ export const handleSaveQuestion = (optionOneText, optionTwoText, history) => {
         })
         .then((question) => {
             dispatch(addQuestion(question))
+            dispatch(hideLoading());
         })
         .then(() => history.push('/'))
     }
