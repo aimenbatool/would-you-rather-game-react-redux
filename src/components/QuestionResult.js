@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class QuestionResult extends Component {
     
@@ -78,11 +77,4 @@ class QuestionResult extends Component {
     }
 }
 
-const mapStateToProps = ({ users, authedUser }) => {
-    return {
-        users,
-        authedUser,
-    }
-}
-
-export default connect(mapStateToProps)(QuestionResult);
+export default QuestionResult;

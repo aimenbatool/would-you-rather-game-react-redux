@@ -5,7 +5,7 @@ import QuestionResult from './QuestionResult';
 
 class Question extends Component {
     render() {
-        const { match, questions, authedUser } = this.props;
+        const { match, questions, authedUser, users } = this.props;
         const { id } = match.params;
         if( questions && questions[id]) {
             const question = questions[id];
@@ -13,9 +13,9 @@ class Question extends Component {
             
             return(
                 answeredQuestion ? 
-                    <QuestionResult question={question}/>
+                    <QuestionResult question={question} users={users} authedUser={authedUser}/>
                     :
-                    <AnswerQuestion />
+                    <AnswerQuestion question={question} users={users} authedUser={authedUser}/>
             );
         } else {
             return (
@@ -25,10 +25,11 @@ class Question extends Component {
     }
 }
 
-const mapStateToProps = ({ questions, authedUser }) => {
+const mapStateToProps = ({ questions, authedUser, users }) => {
     return {
         questions,
         authedUser,
+        users,
     };
 }
 

@@ -1,7 +1,8 @@
-import { _saveQuestion } from '../utils/_DATA';
+import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA';
+import { addAnswerAgainstUser } from './users';
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const ADD_QUESTION = 'SAVE_QUESTION';
-export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
+export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER';
 
 export const getQuestions = (questions) => {
     return {
@@ -32,9 +33,25 @@ export const addQuestion = (question) => {
     }
 }
 
-export const saveQuestionAnswer = (answer) => {
+export const handleAddAnswer = (authedUser, qid, answer) => {
+    return (dispatch) => {
+        return _saveQuestionAnswer({
+            authedUser,
+            qid,
+            answer,
+        })
+        .then(() => {
+            dispatch(saveQuestionAnswer(authedUser, qid, answer))
+            dispatch(addAnswerAgainstUser(authedUser, qid, answer))
+        })
+    }
+}
+
+export const saveQuestionAnswer = (authedUser, qid, answer) => {
     return {
-        type: SAVE_QUESTION_ANSWER,
+        type: ADD_QUESTION_ANSWER,
+        authedUser,
+        qid,
         answer,
     }
 }

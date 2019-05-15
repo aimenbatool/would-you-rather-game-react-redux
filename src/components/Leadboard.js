@@ -11,7 +11,7 @@ const Leadboard = (props) => {
             {
                 Object.entries(users).map( (user, index) => {
                     return(
-                            <div className="card leadboard-panel">
+                            <div key={index} className="card leadboard-panel">
                                 <header className="header has-background-primary">
                                     <p className="card-header-title has-text-light">{ user[1].name } </p>
                                 </header>
