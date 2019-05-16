@@ -18,12 +18,16 @@ class NewQuestion extends Component {
 
     handleSubmit = () => {
         const { optionOneText, optionTwoText } = this.state;
-        const { dispatch, history } = this.props;
-        dispatch(handleSaveQuestion(optionOneText, optionTwoText, history));
+        const { history, handleSaveQuestion } = this.props;
+        handleSaveQuestion(optionOneText, optionTwoText, history);
         this.setState({
             optionOneText: '',
             optionTwoText: '',
         })
+    }
+
+    isQuestionInValid = () => {
+        return (this.state.optionOneText === '' || this.state.optionTwoText === '')
     }
 
     render() {
@@ -48,7 +52,7 @@ class NewQuestion extends Component {
                                         <input className="input" value={this.state.optionTwoText} name="optionTwoText" onChange={this.handleChange} type="text" placeholder="Enter second option" />
                                     </div>
                                     <div className="control">
-                                        <button onClick={this.handleSubmit} className="button is-dark" type="submit">
+                                        <button onClick={this.handleSubmit} disabled={this.isQuestionInValid()} className="button is-dark" type="submit">
                                             <span><i className="fa fa-thumbs-up"></i> Submit</span>
                                         </button>
                                     </div>
@@ -62,4 +66,4 @@ class NewQuestion extends Component {
     }
 }
 
-export default withRouter(connect()(NewQuestion));
+export default withRouter(connect(null, { handleSaveQuestion } )(NewQuestion));
