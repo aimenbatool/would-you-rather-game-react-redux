@@ -34,31 +34,20 @@ class QuestionResult extends Component {
                             <div className="column">
                                 <h6 className="has-text-left">Would you rather?</h6>
                                 <div className="list">
+                                {/* refactor to child class */}
                                     <li className={`list-item  ${optionOneSelected && "has-background-white-ter"}`}> 
                                         Would you rather {question.optionOne.text}?
-                                        {
-                                            optionOneSelected && 
-                                                <span className="selection-badge is-pulled-right">
-                                                    <i className="fa fa-check-circle"> </i>
-                                                    You Chose
-                                                </span>
-                                        }
-                                        <div>
-                                            <progress className="progress is-small" value={percentageCalculator(optionOneVotes, totalVotes)} max="100"> {percentageCalculator(optionOneVotes, totalVotes)} </progress>
-                                        </div>
-                                        <div className="has-text-right">
-                                            <span className="tag is-info"> {`${optionOneVotes} out of ${totalVotes}`} votes</span>
-                                        </div>
+                                        { optionOneSelected && <SelectionBadge /> }
+                                            <div>
+                                                <progress className="progress is-small" value={percentageCalculator(optionOneVotes, totalVotes)} max="100"> {percentageCalculator(optionOneVotes, totalVotes)} </progress>
+                                            </div>
+                                            <div className="has-text-right">
+                                                <span className="tag is-info"> {`${optionOneVotes} out of ${totalVotes}`} votes</span>
+                                            </div>
                                     </li>
                                     <li className={`list-item  ${optionTwoSelected && "has-background-white-ter"}`}> 
                                         Would you rather {question.optionTwo.text}?
-                                        {
-                                            optionTwoSelected && 
-                                                <span className="selection-badge is-pulled-right">
-                                                    <i className="fa fa-check-circle"> </i>
-                                                    You Chose
-                                                </span>
-                                        }
+                                        { optionTwoSelected && <SelectionBadge /> }
                                             <div>
                                                 <progress className="progress is-small" value={percentageCalculator(optionTwoVotes, totalVotes)} max="100"> {percentageCalculator(optionTwoVotes, totalVotes)} </progress>
                                             </div>
@@ -76,5 +65,12 @@ class QuestionResult extends Component {
         );
     }
 }
+
+const SelectionBadge = () => (
+    <span className="selection-badge is-pulled-right">
+        <i className="fa fa-check-circle"> </i>
+        You Chose
+    </span>
+);
 
 export default QuestionResult;
