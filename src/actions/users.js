@@ -1,6 +1,6 @@
-export const GET_USERS = 'GET_USERS';
-export const ADD_ANSWER_TO_USER = 'ADD_ANSWER_TO_USER';
-export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER';
+import { GET_USERS } from './types';
+import { ADD_ANSWER_TO_USER } from './types';
+import { ADD_QUESTION_TO_USER } from './types';
 
 export const getUsers = (users) => {
     return {

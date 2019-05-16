@@ -1,9 +1,10 @@
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA';
 import { addAnswerAgainstUser, addQuestionAgainstUser } from './users';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-export const GET_QUESTIONS = 'GET_QUESTIONS';
-export const ADD_QUESTION = 'SAVE_QUESTION';
-export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER';
+
+import { GET_QUESTIONS } from './types';
+import { ADD_QUESTION } from './types';
+import { ADD_QUESTION_ANSWER } from './types';
 
 export const getQuestions = (questions) => {
     return {

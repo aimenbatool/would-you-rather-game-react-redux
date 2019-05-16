@@ -1,4 +1,4 @@
-import { GET_QUESTIONS, ADD_QUESTION, ADD_QUESTION_ANSWER } from '../actions/questions';
+import { GET_QUESTIONS, ADD_QUESTION, ADD_QUESTION_ANSWER } from '../actions/types';
 
 export const questions = (state = {}, action) => {
         switch (action.type) {

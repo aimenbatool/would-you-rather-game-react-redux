@@ -1,4 +1,4 @@
-import { GET_USERS, ADD_ANSWER_TO_USER, ADD_QUESTION_TO_USER } from '../actions/users';
+import { GET_USERS, ADD_ANSWER_TO_USER, ADD_QUESTION_TO_USER } from '../actions/types';
 
 export const users = (state = {}, action) => {
     switch (action.type) {
