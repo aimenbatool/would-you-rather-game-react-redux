@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
-import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 
     handleChange = (event) => {
-        this.props.dispatch(setAuthedUser(event.target.value));
-        // localStorage.setItem('userId', event.target.value);
-        // remove side effect.
+        this.props.setAuthedUser(event.target.value);
     }
 
     render() {
-        const { users, authedUser } = this.props;
-        if(authedUser) {
-            return <Redirect to="/"/>
-        }
+        const { users } = this.props;
+
         return (
             <div className="columns is-centered question">
                 <div className="column is-4 has-background-white-ter">
@@ -56,4 +51,4 @@ const mapStateToProps = ({ users, authedUser }) => {
     }
 }
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, { setAuthedUser })(Login);

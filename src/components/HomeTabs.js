@@ -8,14 +8,8 @@ import { connect } from 'react-redux';
 class HomeTabs extends Component {    
 
     compare( a, b ) {
-       if ( a[1].timestamp > b[1].timestamp ){
-         return -1;
-       }
-       if ( a[1].timestamp < b[1].timestamp ){
-         return 1;
-       }
-       return 0;
-     }
+        return b[1].timestamp - a[1].timestamp;
+    }
       
     render() {
         const { unanswerdQuestions, answerdQuestions, users } = this.props;

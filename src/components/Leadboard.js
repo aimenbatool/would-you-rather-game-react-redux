@@ -8,13 +8,7 @@ const Leadboard = (props) => {
     const compare = ( a, b ) => {
         const aScore = Object.keys(a[1].answers).length + a[1].questions.length;
         const bScore = Object.keys(b[1].answers).length + b[1].questions.length;
-        if ( aScore > bScore){
-          return -1;
-        }
-        if ( aScore < bScore){
-          return 1;
-        }
-        return 0;
+        return bScore - aScore;
       }
 
     return(

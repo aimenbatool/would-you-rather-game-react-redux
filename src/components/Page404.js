@@ -7,7 +7,7 @@ const Page404 = (props) => {
             <div className="column is-6">
                 {
                     msg 
-                        ? {msg} 
+                        ? msg
                         : "You are trying to access an Invalid URL."
                 }
             </div>

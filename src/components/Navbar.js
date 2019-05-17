@@ -10,8 +10,7 @@ class Navbar extends Component {
     }
 
     handleLogout = () => {
-        // localStorage.removeItem('userId');
-        this.props.dispatch(setAuthedUser());
+        this.props.setAuthedUser();
     }
 
     toggleMenu = () => {
@@ -19,7 +18,6 @@ class Navbar extends Component {
             active: !state.active,
         }))
     }
-
 
     render() {
         const { users, authedUser } = this.props;
@@ -75,4 +73,4 @@ const mapStateToProps = ({ authedUser, users }) => {
     }
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { setAuthedUser })(Navbar);
